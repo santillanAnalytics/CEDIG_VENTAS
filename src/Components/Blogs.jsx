@@ -15,25 +15,21 @@ const Blogs = () => {
       <div className=" flex flex-col items-center  justify-between">
         <div>
           <h1 className=" text-4xl font-semibold text-center lg:text-center">
-            Latest Post
+            Especialidades
           </h1>
           <p className="mt-2 text-center lg:text-right">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus,
-            quidem.
+           
           </p>
         </div>
       </div>
       <div className=" my-8">
         <div className=" flex flex-wrap justify-center gap-5">
-          <BlogCard img={img1} headlines="Unraveling the Mysteries of Sleep" />
-          <BlogCard img={img2} headlines="The Heart-Healthy Diet" />
-          <BlogCard
-            img={img3}
-            headlines="Understanding Pediatric Vaccinations"
-          />
-          <BlogCard img={img4} headlines="Navigating Mental Health" />
-          <BlogCard img={img5} headlines="The Importance of Regular Exercise" />
-          <BlogCard img={img6} headlines="Skin Health 101" />
+          <BlogCard img={img1} headlines="Dolor de rodilla" />
+          <BlogCard img={img2} headlines="Dolor de hombro" />
+          <BlogCard img={img3} headlines="Dolor de pie y tobillo"/>
+          <BlogCard img={img4} headlines="Dolor de cadera" />
+          <BlogCard img={img5} headlines="Dolor de codo" />
+          <BlogCard img={img6} headlines="Dolor de muñeca" />
         </div>
       </div>
     </div>

@@ -26,10 +26,10 @@ const Navbar = () => {
   return (
     <div className=" fixed w-full z-10 text-white">
       <div>
-        <div className="flex flex-row justify-between p-5 md:px-32 px-5 bg-backgroundColor shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+        <div className="flex flex-row justify-between p-5 md:px-32 px-5 bg-[#7DB0B3] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
           <div className="flex flex-row items-center cursor-pointer">
             <Link to="home" spy={true} smooth={true} duration={500}>
-              <h1 className="text-2xl font-semibold">WellnessVista.</h1>
+              <h1 className="text-2xl font-semibold">Dr. Arturo Reyes</h1>
             </Link>
           </div>
           <nav className="hidden lg:flex flex-row items-center text-lg font-medium gap-8">
@@ -38,54 +38,62 @@ const Navbar = () => {
               spy={true}
               smooth={true}
               duration={500}
-              className="hover:text-hoverColor transition-all cursor-pointer"
+              className="hover:text-[#62635C] transition-all cursor-pointer"
+
             >
-              Home
+              Inicio
             </Link>
             <Link
               to="about"
               spy={true}
               smooth={true}
               duration={500}
-              className="hover:text-hoverColor transition-all cursor-pointer"
+              className="hover:text-[#62635C] transition-all cursor-pointer"
             >
-              About Us
+              Quien soy
             </Link>
             <Link
               to="services"
               spy={true}
               smooth={true}
               duration={500}
-              className="hover:text-hoverColor transition-all cursor-pointer"
+              className="hover:text-[#62635C] transition-all cursor-pointer"
             >
-              Services
+              Astroscopia
             </Link>
             <Link
               to="doctors"
               spy={true}
               smooth={true}
               duration={500}
-              className="hover:text-hoverColor transition-all cursor-pointer"
+              className="hover:text-[#62635C] transition-all cursor-pointer"
             >
-              Doctors
+              Microcirugia
             </Link>
             <Link
               to="blogs"
               spy={true}
               smooth={true}
               duration={500}
-              className="hover:text-hoverColor transition-all cursor-pointer"
+              className="hover:text-[#62635C] transition-all cursor-pointer"
             >
-              Blogs
+              Padecimientos
             </Link>
           </nav>
           <div className="hidden lg:flex">
+
+
+
+
             <button
-              className="bg-brightColor text-white px-4 py-2 rounded-md hover:bg-hoverColor transition duration-300 ease-in-out"
+           
+              className="bg-[#5C9194] text-[#FBFCF7] px-5 py-2 rounded-md hover:bg-[#66BDB0] transition duration-300 ease-in-out"
               onClick={openForm}
             >
-              Contact Us
-            </button>
+
+              Contacto
+            </button    > 
+
           </div>
 
           {showForm && <Contact closeForm={closeForm} />}
@@ -103,6 +111,8 @@ const Navbar = () => {
             menu ? "translate-x-0" : "-translate-x-full"
           } lg:hidden flex flex-col absolute bg-backgroundColor text-white left-0 top-16 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
         >
+
+          
           <Link
             to="home"
             spy={true}

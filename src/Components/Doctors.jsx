@@ -5,13 +5,13 @@ import "slick-carousel/slick/slick-theme.css";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 
-import doc1 from "../assets/img/doc1.jpg";
-import doc2 from "../assets/img/doc2.jpg";
-import doc3 from "../assets/img/doc3.jpg";
-import doc4 from "../assets/img/doc4.jpg";
-import doc5 from "../assets/img/doc5.jpg";
-import doc6 from "../assets/img/doc6.jpg";
-
+import cert1 from "../assets/img/cert1.jpg";
+import cert2 from "../assets/img/cert2.jpg";
+import cert3 from "../assets/img/cert3.jpg";
+import cert4 from "../assets/img/cert4.jpg";
+import cert5 from "../assets/img/cert5.jpg";
+import cert6 from "../assets/img/cert6.jpg";
+import cert7 from "../assets/img/cert7.jpg";
 
 
 
@@ -19,35 +19,44 @@ import doc6 from "../assets/img/doc6.jpg";
 const Doctors = () => {
   const data = [
     {
-      img: doc1,
-      name: "Dr. Serena Mitchell",
-      specialties: "Orthopedic Surgeon",
+      img: cert1,
+      //  name: "",
+       // specialties: "",
     },
     {
-      img: doc2,
-      name: "Dr. Julian Bennett",
-      specialties: "Cardiologist",
+      img: cert2,
+      //  name: "",
+       // specialties: "",
     },
     {
-      img: doc3,
-      name: "Dr. Camila Rodriguez",
-      specialties: "Pediatrician",
+      img: cert3,
+      //  name: "",
+       // specialties: "",
     },
     {
-      img: doc4,
-      name: "Dr. Victor Nguyen",
-      specialties: "Neurologist",
+      img: cert4,
+       // name: "",
+       // specialties: "",
     },
     {
-      img: doc5,
-      name: "Dr. Ethan Carter",
-      specialties: "Dermatologist",
+      img: cert5,
+      //  name: "",
+      //  specialties: "",
     },
-    {
-      img: doc6,
-      name: "Dr. Olivia Martinez",
-      specialties: "Ophthalmologist",
+
+        {
+      img: cert6,
+       // name: "",
+       // specialties: "",
     },
+
+        {
+      img: cert7,
+      //  name: "",
+       // specialties: "",
+    },
+
+
   ];
 
   const slider = useRef(null);
@@ -94,11 +103,12 @@ const Doctors = () => {
       <div className=" flex flex-col items-center justify-between mb-10 lg:mb-0">
         <div>
           <h1 className=" text-4xl font-semibold text-center lg:text-center">
-            Our Doctors
+            Mi carrera profesional
           </h1>
           <p className=" mt-2 text-center lg:text-center">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus,
-            quidem.
+            
+
+
           </p>
         </div>
         <div className="flex gap-5 mt-4 lg:mt-4">
@@ -127,7 +137,7 @@ const Doctors = () => {
                 <img
                   src={e.img}
                   alt="img"
-                  className=" h-56 rounded-t-xl w-full"
+                  className=" h-80 rounded-t-xl w-full"
                 />
               </div>
 
