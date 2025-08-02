@@ -24,78 +24,87 @@ const Navbar = () => {
   };
 
   return (
-    <div className=" fixed w-full z-10 text-white">
-      <div>
-        <div className="flex flex-row justify-between p-5 md:px-32 px-5 bg-[#7DB0B3] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
-          <div className="flex flex-row items-center cursor-pointer">
-            <Link to="home" spy={true} smooth={true} duration={500}>
-              <h1 className="text-2xl font-semibold">Dr. Arturo Reyes</h1>
-            </Link>
-          </div>
-          <nav className="hidden lg:flex flex-row items-center text-lg font-medium gap-8">
-            <Link
-              to="home"
-              spy={true}
-              smooth={true}
-              duration={500}
-              className="hover:text-[#62635C] transition-all cursor-pointer"
-
-            >
-              Inicio
-            </Link>
-            <Link
-              to="about"
-              spy={true}
-              smooth={true}
-              duration={500}
-              className="hover:text-[#62635C] transition-all cursor-pointer"
-            >
-              Quien soy
-            </Link>
-            <Link
-              to="services"
-              spy={true}
-              smooth={true}
-              duration={500}
-              className="hover:text-[#62635C] transition-all cursor-pointer"
-            >
-              Astroscopia
-            </Link>
-            <Link
-              to="doctors"
-              spy={true}
-              smooth={true}
-              duration={500}
-              className="hover:text-[#62635C] transition-all cursor-pointer"
-            >
-              Microcirugia
-            </Link>
-            <Link
-              to="blogs"
-              spy={true}
-              smooth={true}
-              duration={500}
-              className="hover:text-[#62635C] transition-all cursor-pointer"
-            >
-              Padecimientos
-            </Link>
-          </nav>
-          <div className="hidden lg:flex">
+    <div className="fixed w-full z-10 text-white">
+  <div>
+        {/* DEFINIR EL COLOR DE LA BARRA DE NAVEGACION*/}
+    <div className="flex flex-row justify-between p-5 md:px-32 px-5 bg-[#06257D] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+        {/* DEFINIR EL COLOR DE LA BARRA DE NAVEGACION*/}
 
 
+      <div className="flex flex-col items-center cursor-pointer text-center">
+        <Link to="tusganancias" spy={true} smooth={true} duration={500}>
+          <h1 className="text-2xl font-semibold">CEDIG TRACKER</h1>
+        </Link>
+        <div className="w-64 h-[2px] bg-white my-2"></div>
+        <p className="text-sm leading-tight">
+        Hecho por lalo<br />
+          
+        </p>
+      </div>
+      <nav className="hidden lg:flex flex-row items-center text-lg font-medium gap-8">
+
+                <Link
+          to="tusganancias"
+          spy={true}
+          smooth={true}
+          duration={500}
+          className="hover:text-[#1973E7] transition-all cursor-pointer"
+        >
+                      GANANCIAS
+          </Link>
 
 
-            <button
-           
-              className="bg-[#5C9194] text-[#FBFCF7] px-5 py-2 rounded-md hover:bg-[#66BDB0] transition duration-300 ease-in-out"
-              onClick={openForm}
-            >
+        <Link
+          to="Seguros"
+          spy={true}
+          smooth={true}
+          duration={500}
+          className="hover:text-[#1973E7] transition-all cursor-pointer"
+        >
+                      SEGUROS
+          </Link>
 
-              Contacto
-            </button    > 
+        <Link
+          to="consumos"
+          spy={true}
+          smooth={true}
+          duration={500}
+          offset={-80}
+          className="flex flex-col items-center text-center hover:text-[#1973E7] transition-all cursor-pointer"
+        >
+          CONSUMOS
+          <br />
+          <span className="flex flex-col items-center text-center hover:text-[#1973E7] transition-all cursor-pointer">
+            Y EFI
+          </span>
+        </Link>
 
-          </div>
 
+          <Link
+            to="tarjetas"
+            spy={true}
+            smooth={true}
+            duration={500}
+            className="hover:text-[#1973E7] transition-all cursor-pointer"
+          >
+            TARJETAS
+          </Link>
+
+
+      
+
+          <Link
+            to="ganamas"
+            spy={true}
+            smooth={true}
+            duration={500}
+            className="hover:text-[#1973E7] transition-all cursor-pointer"
+          >
+              GANA MAS
+          </Link>
+
+                  </nav>
+     
           {showForm && <Contact closeForm={closeForm} />}
 
           <div className=" lg:hidden flex items-center">
@@ -114,63 +123,63 @@ const Navbar = () => {
 
           
           <Link
-            to="home"
-            spy={true}
-            smooth={true}
-            duration={500}
-            className=" hover:text-hoverColor transition-all cursor-pointer"
-            onClick={closeMenu}
-          >
-            Home
+          to="tusganancias"
+          spy={true}
+          smooth={true}
+          duration={500}
+          className="hover:text-[#1973E7] transition-all cursor-pointer"
+        >
+                      Ganancias
           </Link>
+
           <Link
-            to="about"
+            to="Seguros"
             spy={true}
             smooth={true}
             duration={500}
             className=" hover:text-hoverColor transition-all cursor-pointer"
             onClick={closeMenu}
           >
-            About Us
+            SEGUROS
           </Link>
+
           <Link
-            to="services"
+            to="consumos"
             spy={true}
             smooth={true}
             duration={500}
             className=" hover:text-hoverColor transition-all cursor-pointer"
             onClick={closeMenu}
           >
-            Services
+            CONSUMOS
           </Link>
+
           <Link
-            to="doctors"
+            to="tarjetas"
             spy={true}
             smooth={true}
             duration={500}
             className=" hover:text-hoverColor transition-all cursor-pointer"
             onClick={closeMenu}
           >
-            Doctors
+            TARJETAS
           </Link>
+
           <Link
-            to="blogs"
+            to="ganamas"
             spy={true}
             smooth={true}
             duration={500}
             className=" hover:text-hoverColor transition-all cursor-pointer"
             onClick={closeMenu}
           >
-            Blogs
+
+                        GANA MAS
+       
           </Link>
-          <div className=" lg:hidden">
-            <button
-              className="bg-brightColor text-white px-4 py-2 rounded-md hover:bg-hoverColor transition duration-300 ease-in-out"
-              onClick={openForm}
-            >
-              Contact Us
-            </button>
-          </div>
+
+
+          
         </div>
       </div>
     </div>
