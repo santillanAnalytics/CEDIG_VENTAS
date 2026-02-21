@@ -5,8 +5,8 @@ module.exports = {
     extend: {
       colors: {
         salud: {
-          claro: '#06257D',
-          medio: '#06257D',
+          claro: '#001391',
+          medio: '#001391',
           base: '#3B9EDC',
           oscuro: '#1B6FA8',
         },
