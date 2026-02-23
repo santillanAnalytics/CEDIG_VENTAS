@@ -5,12 +5,18 @@ import Navbar from './Components/Navbar';
 import Seguros from './Components/Seguros';
 import Consumos from './Components/consumos';
 import Tarjetas from './Components/tarjetas';
+
+import VentasSeguros from './Components/ventasseguros';
+import VetasConsumos from './Components/vetasconsumos';
+import VentasTarjetas from './Components/ventastarjetas';
+
+
 import Tusganancias from './Components/tusganancias';
 
+
+
 import Ganamas from './Components/Ganamas';
-
 import Footer from './Components/Footer';
-
 import FloatingButtons from './Components/FloatingButtons';
 
 
@@ -40,16 +46,20 @@ function App() {
     <>
       <Navbar />
       <main>
-        <AnimatedSection id="tusganancias" delay={0}><Tusganancias/></AnimatedSection>
-        <AnimatedSection id="Seguros" delay={0.2}><Seguros/></AnimatedSection>
-        <AnimatedSection id="consumos" delay={0.4}><Consumos/></AnimatedSection>
-        <AnimatedSection id="tarjetas" delay={0.6}><Tarjetas/></AnimatedSection>
-        
 
+        <AnimatedSection id="ventasseguros" delay={0.2}><VentasSeguros/></AnimatedSection>
+        <AnimatedSection id="vetasconsumos" delay={0.4}><VetasConsumos/></AnimatedSection>
+        <AnimatedSection id="ventastarjetas" delay={0.6}><VentasTarjetas/></AnimatedSection>
 
-       
         <AnimatedSection id="ganamas" delay={0.8}><Ganamas/></AnimatedSection>
        
+        <AnimatedSection id="Seguros" delay={0.8}><Seguros/></AnimatedSection>
+        <AnimatedSection id="consumos" delay={1.0}><Consumos/></AnimatedSection>
+
+
+
+       
+    
       </main>
       <FloatingButtons />
       <Footer />

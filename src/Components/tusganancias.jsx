@@ -89,6 +89,10 @@ const ConsumosPage = () => {
     return total;
   }, [inputs]);
 
+
+
+  
+
   // Calcula porcentaje según puntos
   const porcentaje = totalPoints >= 4 ? 1.4 : totalPoints === 3 ? 1.3 : 1;
 
@@ -130,7 +134,7 @@ const ConsumosPage = () => {
 
               
               <th className="bg-[#0050EF] rounded-xl px-6 py-4 text-xl" rowSpan={2}>
-                Seguros
+                Seguro
               </th>
               <th className="bg-[#1973E7] rounded-xl px-6 py-4 text-xl" colSpan={3}>
                 Tarjetas
@@ -181,6 +185,9 @@ const ConsumosPage = () => {
               ))}
             </tr>
 
+
+
+
             {/* Ganancias */}
             <tr>
               <td className="bg-white rounded-xl px-4 py-4 text-xl font-bold min-w-[120px]">Ganancias</td>
@@ -203,6 +210,9 @@ const ConsumosPage = () => {
                 })()}
               </td>
 
+
+
+
               {/* TARJETAS - Azul */}
               <td
                 className={`rounded-xl py-4 text-xl min-w-[120px] ${
@@ -216,6 +226,9 @@ const ConsumosPage = () => {
                   return total > 0 ? `$${total.toLocaleString()}` : "";
                 })()}
               </td>
+
+
+              
 
               {/* TARJETAS - Oro */}
               <td
@@ -299,6 +312,14 @@ const ConsumosPage = () => {
                 })()}
               </td>
             </tr>
+
+
+
+
+
+
+
+            
 
             {/* Puntos */}
             <tr>
