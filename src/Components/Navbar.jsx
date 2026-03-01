@@ -27,7 +27,7 @@ const Navbar = () => {
     <div className="fixed w-full z-10 text-white">
   <div>
         {/* DEFINIR EL COLOR DE LA BARRA DE NAVEGACION*/}
-    <div className="flex flex-row justify-between p-5 md:px-32 px-5 bg-[#06257D] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+    <div className="flex flex-row justify-between p-5 md:px-32 px-5 bg-[#001391] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
         {/* DEFINIR EL COLOR DE LA BARRA DE NAVEGACION*/}
 
 

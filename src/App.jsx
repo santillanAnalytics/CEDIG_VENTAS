@@ -1,30 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";  // <-- importa useInView
-import Navbar from './Components/Navbar';
-import Seguros from './Components/Seguros';
-import Consumos from './Components/consumos';
-import Tarjetas from './Components/tarjetas';
+import { useInView } from "react-intersection-observer";
 
-import VentasSeguros from './Components/ventasseguros';
-import VetasConsumos from './Components/vetasconsumos';
-import VentasTarjetas from './Components/ventastarjetas';
-
-
-import Tusganancias from './Components/tusganancias';
+import Navbar from "./Components/Navbar";
+import VentasSeguros from "./Components/ventasseguros";
+import VetasConsumos from "./Components/vetasconsumos";
+import VentasTarjetas from "./Components/ventastarjetas";
+import Tusganancias from "./Components/tusganancias";
+import Ganamas from "./Components/Ganamas";
+import Footer from "./Components/Footer";
+import FloatingButtons from "./Components/FloatingButtons";
 
 
 
-import Ganamas from './Components/Ganamas';
-import Footer from './Components/Footer';
-import FloatingButtons from './Components/FloatingButtons';
-
-
-// Crea un componente que envuelva cada sección y controle la animación al entrar en viewport
 function AnimatedSection({ id, children, delay = 0 }) {
   const [ref, inView] = useInView({
-    triggerOnce: true,  // solo la primera vez que entra
-    threshold: 0.1,     // 10% visible para disparar
+    triggerOnce: true,
+    threshold: 0.1,
   });
 
   return (
@@ -46,21 +38,23 @@ function App() {
     <>
       <Navbar />
       <main>
+        <AnimatedSection id="ventasseguros" delay={0.2}>
+          <VentasSeguros />
+        </AnimatedSection>
 
-        <AnimatedSection id="ventasseguros" delay={0.2}><VentasSeguros/></AnimatedSection>
-        <AnimatedSection id="vetasconsumos" delay={0.4}><VetasConsumos/></AnimatedSection>
-        <AnimatedSection id="ventastarjetas" delay={0.6}><VentasTarjetas/></AnimatedSection>
+        <AnimatedSection id="vetasconsumos" delay={0.4}>
+          <VetasConsumos />
+        </AnimatedSection>
 
-        <AnimatedSection id="ganamas" delay={0.8}><Ganamas/></AnimatedSection>
-       
-        <AnimatedSection id="Seguros" delay={0.8}><Seguros/></AnimatedSection>
-        <AnimatedSection id="consumos" delay={1.0}><Consumos/></AnimatedSection>
+        <AnimatedSection id="ventastarjetas" delay={0.6}>
+          <VentasTarjetas />
+        </AnimatedSection>
 
-
-
-       
-    
+        <AnimatedSection id="ganamas" delay={0.8}>
+          <Ganamas />
+        </AnimatedSection>
       </main>
+
       <FloatingButtons />
       <Footer />
     </>

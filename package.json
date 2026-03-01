@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://calcetacosmica.github.io/medic_page",
+  "homepage": "https://santillananalytics.github.io/CEDIG_VENTAS/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -u \"CalcetaCosmica <he.aguilarsantillan@ugto.mx>\" --repo=git@github.com:CalcetaCosmica/medic_page.git"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "framer-motion": "^12.23.9",

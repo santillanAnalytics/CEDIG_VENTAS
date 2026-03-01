@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useVentas } from "./VentasContext";
 
 const PromotionsPage = () => {
+  const { setTotalSeguros, setCantidadSeguros } = useVentas();
+
   const [cantidad, setCantidad] = useState("");
 
   const seguros = Number(cantidad) || 0;
@@ -15,6 +18,12 @@ const PromotionsPage = () => {
 
   const total = seguros * obtenerTarifa();
 
+  // 🔥 Enviar datos al contexto
+  useEffect(() => {
+    setTotalSeguros(total);
+    setCantidadSeguros(seguros);
+  }, [total, seguros, setTotalSeguros, setCantidadSeguros]);
+
   const rangos = [
     { tipo: "Platino", rango: "más de 50", prima: 120, activo: seguros > 50 },
     { tipo: "Oro", rango: "34 a 50", prima: 110, activo: seguros >= 34 && seguros <= 50 },
@@ -24,9 +33,10 @@ const PromotionsPage = () => {
 
   return (
     <div className="min-h-screen bg-[#E0E0E0] pt-36 p-10 flex flex-col items-center">
-      <h1 className="text-4xl font-bold text-[#06257D] mb-10">SEGUROS</h1>
+      <h1 className="text-4xl font-bold text-[#06257D] mb-10">
+        SEGUROS
+      </h1>
 
-      {/* INPUT */}
       <div className="mb-8 text-center">
         <p className="text-lg font-semibold text-[#06257D] mb-2">
           Ingresa seguros vendidos
@@ -36,11 +46,17 @@ const PromotionsPage = () => {
           value={cantidad}
           onChange={(e) => setCantidad(e.target.value)}
           placeholder="Ej: 25"
-          className="px-4 py-2 rounded-lg text-center text-xl border-2 border-[#1973E7] focus:outline-none focus:ring-2 focus:ring-[#1973E7]"
+          className="px-4 py-2 rounded-lg text-center text-xl border-2 border-[#1973E7]"
         />
       </div>
 
-      {/* TABLA */}
+      <div className="mt-10 bg-white rounded-2xl shadow-lg px-10 py-6 text-center">
+        <p className="text-lg text-gray-500">Ganancia estimada</p>
+        <p className="text-4xl font-bold text-[#06257D]">
+          {total > 0 ? `$${total.toLocaleString()}` : "$0"}
+        </p>
+      </div>
+
       <div className="overflow-x-auto w-full max-w-4xl">
         <table className="table-auto w-full border-separate border-spacing-4">
           <thead>
@@ -50,48 +66,22 @@ const PromotionsPage = () => {
               <th className="bg-[#2F8DEB] rounded-xl px-4 py-3">PRIMA</th>
             </tr>
           </thead>
-
           <tbody className="text-center text-[#06257D] font-medium">
             {rangos.map((row, idx) => (
-              <tr
-                key={idx}
-                className={`transition-all duration-300 ${
-                  row.activo ? "scale-105" : ""
-                }`}
-              >
-                <td
-                  className={`rounded-xl py-3 ${
-                    row.activo ? "bg-green-200 font-bold" : "bg-white"
-                  }`}
-                >
+              <tr key={idx}>
+                <td className="bg-white rounded-xl py-3">
                   {row.tipo}
                 </td>
-                <td
-                  className={`rounded-xl py-3 ${
-                    row.activo ? "bg-green-200 font-bold" : "bg-white"
-                  }`}
-                >
+                <td className="bg-white rounded-xl py-3">
                   {row.rango}
                 </td>
-                <td
-                  className={`rounded-xl py-3 ${
-                    row.activo ? "bg-green-200 font-bold" : "bg-white"
-                  }`}
-                >
+                <td className="bg-white rounded-xl py-3">
                   ${row.prima}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
-
-      {/* RESULTADO */}
-      <div className="mt-10 bg-white rounded-2xl shadow-lg px-10 py-6 text-center">
-        <p className="text-lg text-gray-500">Ganancia estimada</p>
-        <p className="text-4xl font-bold text-[#06257D]">
-          {total > 0 ? `$${total.toLocaleString()}` : "$0"}
-        </p>
       </div>
     </div>
   );

@@ -1,38 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BlogCard from "../Layouts/BlogCard";
 
 import img1 from "../assets/img/azul_tdc.jpg";
 import img2 from "../assets/img/oro_tdc.jpg";
 import img3 from "../assets/img/platino_tdc.jpg";
 
+import { useVentas } from "./VentasContext";
+
 const TarjetasPage = () => {
+
+  // ✅ Hook dentro del componente
+  const { setTotalTarjetas, setCantidadTDC } = useVentas();
+
   const [azul, setAzul] = useState("");
   const [oro, setOro] = useState("");
   const [platino, setPlatino] = useState("");
 
   const parseNumber = (v) => v.replace(/\D/g, "");
 
-  // Convertimos a número
   const azulNum = Number(azul) || 0;
   const oroNum = Number(oro) || 0;
   const platinoNum = Number(platino) || 0;
 
-  // Ganancias SOLO por tipo
+  // Ganancias por tipo
   const ganAzul = azulNum * 200;
   const ganOro = oroNum * 250;
   const ganPlatino = platinoNum * 300;
 
-  // Total tarjetas
-  const totalTarjetas = azulNum + oroNum + platinoNum;
+  // Cantidad total de tarjetas
+  const totalTarjetasVendidas = azulNum + oroNum + platinoNum;
 
   // Subtotal sin bono
   const subtotal = ganAzul + ganOro + ganPlatino;
 
-  // Bono: $100 por tarjeta SOLO si se vende más de una
-  const bono = totalTarjetas > 1 ? totalTarjetas * 100 : 0;
+  // Bono
+  const bono = totalTarjetasVendidas > 1
+    ? totalTarjetasVendidas * 100
+    : 0;
 
-  // Total final
   const total = subtotal + bono;
+
+  // ✅ ACTUALIZA EL CONTEXTO CUANDO CAMBIA EL TOTAL
+  useEffect(() => {
+    setTotalTarjetas(total);
+    setCantidadTDC(totalTarjetasVendidas);
+  }, [total, totalTarjetasVendidas, setTotalTarjetas, setCantidadTDC]);
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center pt-24 px-6">
@@ -40,12 +52,6 @@ const TarjetasPage = () => {
       <h1 className="text-4xl font-bold text-[#06257D] text-center mb-10">
         Tarjetas de crédito
       </h1>
-
-      <div className="flex flex-wrap justify-center gap-5 mb-10">
-        <BlogCard img={img1} headlines="Azul $200" />
-        <BlogCard img={img2} headlines="Oro $250" />
-        <BlogCard img={img3} headlines="Platino $300" />
-      </div>
 
       {/* Inputs */}
       <div className="grid md:grid-cols-3 gap-6 w-full max-w-4xl mb-10">
@@ -75,6 +81,23 @@ const TarjetasPage = () => {
           className="border rounded-lg py-3 text-center text-xl"
           inputMode="numeric"
         />
+      </div>
+
+      {/* Total */}
+      <div className="bg-[#06257D] text-white px-10 py-6 rounded-2xl mt-10 text-center shadow-lg">
+        <p className="text-lg">
+          Total tarjetas vendidas: {totalTarjetasVendidas}
+        </p>
+
+        {bono > 0 && (
+          <p className="text-md opacity-90">
+            Bono aplicado: ${bono.toLocaleString()}
+          </p>
+        )}
+
+        <p className="text-4xl font-bold mt-2">
+          ${total.toLocaleString()}
+        </p>
       </div>
 
       {/* Tabla */}
@@ -113,20 +136,12 @@ const TarjetasPage = () => {
         </table>
       </div>
 
-      {/* Total */}
-      <div className="bg-[#06257D] text-white px-10 py-6 rounded-2xl mt-10 text-center shadow-lg">
-        <p className="text-lg">Total tarjetas vendidas: {totalTarjetas}</p>
-
-        {bono > 0 && (
-          <p className="text-md opacity-90">
-            Bono aplicado: ${bono.toLocaleString()}
-          </p>
-        )}
-
-        <p className="text-4xl font-bold mt-2">
-          ${total.toLocaleString()}
-        </p>
+      <div className="flex flex-wrap justify-center gap-5 mb-10">
+        <BlogCard img={img1} headlines="Azul $200" />
+        <BlogCard img={img2} headlines="Oro $250" />
+        <BlogCard img={img3} headlines="Platino $300" />
       </div>
+
     </div>
   );
 };

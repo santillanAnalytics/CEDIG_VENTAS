@@ -313,14 +313,6 @@ const ConsumosPage = () => {
               </td>
             </tr>
 
-
-
-
-
-
-
-            
-
             {/* Puntos */}
             <tr>
               <td className="bg-white rounded-xl px-4 py-4 text-xl font-bold min-w-[120px]">Puntos</td>
